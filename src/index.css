@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0A0A0A;
+    --text-primary: #F5F5F7;
+    --gold-primary: #C9A96E;
+    --gold-glow: rgba(201, 169, 110, 0.25);
+  }
+
+  html.light {
+    --bg-primary: #F9F8F5;
+    --text-primary: #18181A;
+    --gold-primary: #A88647;
+    --gold-glow: rgba(168, 134, 71, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  /* Custom Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+
+  html.light ::-webkit-scrollbar-track {
+    background: #F4ECE0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 169, 110, 0.35);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 169, 110, 0.7);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #ECC880 0%, #C9A96E 50%, #9B783E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-gradient-subtle {
+    background: linear-gradient(135deg, #F5F5F7 0%, #E6D3A7 50%, #C9A96E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gold-subtle {
+    border-color: rgba(201, 169, 110, 0.22);
+  }
+
+  .bg-glass-luxury {
+    background: rgba(18, 18, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .bg-glass-card {
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  html.light .bg-glass-luxury {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  html.light .bg-glass-card {
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .shadow-gold-soft {
+    box-shadow: 0 10px 30px -10px rgba(201, 169, 110, 0.15);
+  }
+
+  .shadow-gold-hover {
+    box-shadow: 0 15px 40px -10px rgba(201, 169, 110, 0.3);
+  }
+
+  .gold-hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 110, 0.4) 50%, transparent 100%);
+  }
+}
+
+/* Hide default cursor only if custom cursor is active on non-touch screens */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: default;
+  }
+}
